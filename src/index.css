@@ -9,28 +9,28 @@
 
 :root {
   /* Light background tones */
-  --bg-primary: #FDFDFD;
-  --bg-secondary: #F7F7F7;
-  --bg-elevated: #FFFFFF;
-  --bg-surface: #FFFFFF;
-  --bg-surface-hover: #FFF0FA;
-  --bg-surface-active: #FFE1F5;
+  --bg-primary: #EBEBEB;
+  --bg-secondary: #E0E0E0;
+  --bg-elevated: #F4F4F4;
+  --bg-surface: #EBEBEB;
+  --bg-surface-hover: #DFDFDF;
+  --bg-surface-active: #D5D5D5;
 
-  /* Pink accent palette */
-  --purple-50: #FFF0FA;
-  --purple-100: #FFE1F5;
-  --purple-200: #FFC4EC;
-  --purple-300: #FFA4E1;
-  --purple-400: #FF83D6;
-  --purple-500: #F06AC3;
-  --purple-600: #DE52B0;
-  --purple-700: #C23996;
-  --purple-glow: rgba(255, 131, 214, 0.2);
-  --purple-glow-strong: rgba(255, 131, 214, 0.35);
+  /* Blue accent palette */
+  --purple-50: #E6E6FF;
+  --purple-100: #CCCCFF;
+  --purple-200: #9999FF;
+  --purple-300: #6666FF;
+  --purple-400: #5252FF;
+  --purple-500: #4242FF;
+  --purple-600: #3333FF;
+  --purple-700: #2424E6;
+  --purple-glow: rgba(82, 82, 255, 0.2);
+  --purple-glow-strong: rgba(82, 82, 255, 0.35);
 
   /* Secondary accent */
-  --violet-400: #FFA4E1;
-  --violet-500: #FF83D6;
+  --violet-400: #6666FF;
+  --violet-500: #5252FF;
 
   /* Semantic */
   --correct: #10B981;
@@ -44,20 +44,20 @@
   --warning-border: rgba(245, 158, 11, 0.2);
 
   /* Text */
-  --text-primary: #1B1B1B;
+  --text-primary: #1A1A1A;
   --text-secondary: #4A4A4A;
   --text-muted: #808080;
 
   /* Borders */
-  --border-subtle: rgba(27, 27, 27, 0.08);
-  --border-default: rgba(27, 27, 27, 0.12);
-  --border-hover: rgba(255, 131, 214, 0.3);
-  --border-purple: rgba(255, 131, 214, 0.5);
+  --border-subtle: rgba(26, 26, 26, 0.08);
+  --border-default: rgba(26, 26, 26, 0.12);
+  --border-hover: rgba(82, 82, 255, 0.3);
+  --border-purple: rgba(82, 82, 255, 0.5);
 
   /* Solid Colors (replacing gradients) */
-  --gradient-purple: #FF83D6;
-  --gradient-purple-vivid: #FF83D6;
-  --gradient-bg: #FDFDFD;
+  --gradient-purple: #5252FF;
+  --gradient-purple-vivid: #4242FF;
+  --gradient-bg: #5252FF;
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(27, 27, 27, 0.06), 0 1px 2px rgba(27, 27, 27, 0.04);
@@ -98,11 +98,7 @@ body {
 
 /* ===== Animated Background ===== */
 .bg-orbs {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
+  display: none;
 }
 
 .bg-orbs .orb {
@@ -307,7 +303,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: #DE52B0;
+  background: #3333FF;
   opacity: 0;
   transition: opacity var(--transition-normal);
 }
