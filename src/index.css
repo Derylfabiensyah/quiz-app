@@ -54,10 +54,10 @@
   --border-hover: rgba(255, 131, 214, 0.3);
   --border-purple: rgba(255, 131, 214, 0.5);
 
-  /* Gradients */
-  --gradient-purple: linear-gradient(135deg, #DE52B0 0%, #FF83D6 50%, #FFA4E1 100%);
-  --gradient-purple-vivid: linear-gradient(135deg, #F06AC3 0%, #FF83D6 100%);
-  --gradient-bg: linear-gradient(160deg, #FFFFFF 0%, #FDFDFD 30%, #F7F7F7 60%, #FFFFFF 100%);
+  /* Solid Colors (replacing gradients) */
+  --gradient-purple: #FF83D6;
+  --gradient-purple-vivid: #FF83D6;
+  --gradient-bg: #FDFDFD;
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(27, 27, 27, 0.06), 0 1px 2px rgba(27, 27, 27, 0.04);
@@ -206,14 +206,15 @@ body {
 .start-screen .logo-icon {
   width: 80px;
   height: 80px;
-  background: var(--gradient-purple);
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-default);
   border-radius: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 38px;
   margin-bottom: 20px;
-  box-shadow: var(--shadow-purple);
+  box-shadow: var(--shadow-sm);
   animation: logoFloat 4s ease-in-out infinite;
   position: relative;
 }
@@ -223,9 +224,9 @@ body {
   position: absolute;
   inset: -6px;
   border-radius: 28px;
-  background: var(--gradient-purple);
-  opacity: 0.15;
-  filter: blur(16px);
+  background: var(--bg-elevated);
+  opacity: 0.5;
+  filter: blur(10px);
   z-index: -1;
 }
 
@@ -306,7 +307,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #C23996 0%, #DE52B0 100%);
+  background: #DE52B0;
   opacity: 0;
   transition: opacity var(--transition-normal);
 }
@@ -618,7 +619,7 @@ body {
 
 .score-circle .circle-progress {
   fill: none;
-  stroke: url(#scoreGradient);
+  stroke: var(--purple-400);
   stroke-width: 10;
   stroke-linecap: round;
   transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1);

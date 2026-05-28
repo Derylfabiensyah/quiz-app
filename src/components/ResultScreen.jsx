@@ -36,12 +36,7 @@ function ResultScreen({ score, totalQuestions, onRestart }) {
       <div className="score-circle-container">
         <div className="score-circle">
           <svg viewBox="0 0 160 160">
-            <defs>
-              <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#C23996" />
-                <stop offset="100%" stopColor="#FF83D6" />
-              </linearGradient>
-            </defs>
+
             <circle className="circle-bg" cx="80" cy="80" r={radius} />
             <circle
               className="circle-progress"
