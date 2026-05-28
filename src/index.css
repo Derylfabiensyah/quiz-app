@@ -9,28 +9,28 @@
 
 :root {
   /* Light background tones */
-  --bg-primary: #F5F3FF;
-  --bg-secondary: #EDE9FE;
+  --bg-primary: #FDFDFD;
+  --bg-secondary: #F7F7F7;
   --bg-elevated: #FFFFFF;
-  --bg-surface: #F8F7FF;
-  --bg-surface-hover: #F0EDFF;
-  --bg-surface-active: #E8E4FF;
+  --bg-surface: #FFFFFF;
+  --bg-surface-hover: #FFF0FA;
+  --bg-surface-active: #FFE1F5;
 
-  /* Purple accent palette */
-  --purple-50: #F5F3FF;
-  --purple-100: #EDE9FE;
-  --purple-200: #DDD6FE;
-  --purple-300: #C4B5FD;
-  --purple-400: #A78BFA;
-  --purple-500: #8B5CF6;
-  --purple-600: #7C3AED;
-  --purple-700: #6D28D9;
-  --purple-glow: rgba(139, 92, 246, 0.2);
-  --purple-glow-strong: rgba(139, 92, 246, 0.35);
+  /* Pink accent palette */
+  --purple-50: #FFF0FA;
+  --purple-100: #FFE1F5;
+  --purple-200: #FFC4EC;
+  --purple-300: #FFA4E1;
+  --purple-400: #FF83D6;
+  --purple-500: #F06AC3;
+  --purple-600: #DE52B0;
+  --purple-700: #C23996;
+  --purple-glow: rgba(255, 131, 214, 0.2);
+  --purple-glow-strong: rgba(255, 131, 214, 0.35);
 
-  /* Violet-blue secondary */
-  --violet-400: #818CF8;
-  --violet-500: #6366F1;
+  /* Secondary accent */
+  --violet-400: #FFA4E1;
+  --violet-500: #FF83D6;
 
   /* Semantic */
   --correct: #10B981;
@@ -44,28 +44,28 @@
   --warning-border: rgba(245, 158, 11, 0.2);
 
   /* Text */
-  --text-primary: #1E1B4B;
-  --text-secondary: #5B5675;
-  --text-muted: #8E89A8;
+  --text-primary: #1B1B1B;
+  --text-secondary: #4A4A4A;
+  --text-muted: #808080;
 
   /* Borders */
-  --border-subtle: rgba(139, 92, 246, 0.08);
-  --border-default: rgba(139, 92, 246, 0.12);
-  --border-hover: rgba(139, 92, 246, 0.22);
-  --border-purple: rgba(139, 92, 246, 0.35);
+  --border-subtle: rgba(27, 27, 27, 0.08);
+  --border-default: rgba(27, 27, 27, 0.12);
+  --border-hover: rgba(255, 131, 214, 0.3);
+  --border-purple: rgba(255, 131, 214, 0.5);
 
   /* Gradients */
-  --gradient-purple: linear-gradient(135deg, #7C3AED 0%, #6366F1 50%, #818CF8 100%);
-  --gradient-purple-vivid: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
-  --gradient-bg: linear-gradient(160deg, #F5F3FF 0%, #EDE9FE 30%, #E0E7FF 60%, #F5F3FF 100%);
+  --gradient-purple: linear-gradient(135deg, #DE52B0 0%, #FF83D6 50%, #FFA4E1 100%);
+  --gradient-purple-vivid: linear-gradient(135deg, #F06AC3 0%, #FF83D6 100%);
+  --gradient-bg: linear-gradient(160deg, #FFFFFF 0%, #FDFDFD 30%, #F7F7F7 60%, #FFFFFF 100%);
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(124, 58, 237, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 16px rgba(124, 58, 237, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 12px 40px rgba(124, 58, 237, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04);
-  --shadow-purple: 0 8px 28px rgba(139, 92, 246, 0.2);
-  --shadow-purple-lg: 0 12px 36px rgba(139, 92, 246, 0.32);
-  --shadow-card: 0 8px 32px rgba(124, 58, 237, 0.07), 0 2px 8px rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px rgba(27, 27, 27, 0.06), 0 1px 2px rgba(27, 27, 27, 0.04);
+  --shadow-md: 0 4px 16px rgba(27, 27, 27, 0.08), 0 2px 6px rgba(27, 27, 27, 0.04);
+  --shadow-lg: 0 12px 40px rgba(27, 27, 27, 0.1), 0 4px 12px rgba(27, 27, 27, 0.04);
+  --shadow-purple: 0 8px 28px rgba(255, 131, 214, 0.3);
+  --shadow-purple-lg: 0 12px 36px rgba(255, 131, 214, 0.45);
+  --shadow-card: 0 8px 32px rgba(27, 27, 27, 0.07), 0 2px 8px rgba(27, 27, 27, 0.03);
 
   /* Misc */
   --card-radius: 24px;
@@ -115,7 +115,7 @@ body {
 .bg-orbs .orb:nth-child(1) {
   width: 550px;
   height: 550px;
-  background: rgba(167, 139, 250, 0.2);
+  background: rgba(255, 131, 214, 0.12);
   top: -12%;
   right: -8%;
   animation-delay: 0s;
@@ -124,7 +124,7 @@ body {
 .bg-orbs .orb:nth-child(2) {
   width: 450px;
   height: 450px;
-  background: rgba(129, 140, 248, 0.15);
+  background: rgba(222, 82, 176, 0.1);
   bottom: -12%;
   left: -8%;
   animation-delay: -8s;
@@ -133,7 +133,7 @@ body {
 .bg-orbs .orb:nth-child(3) {
   width: 320px;
   height: 320px;
-  background: rgba(196, 181, 253, 0.18);
+  background: rgba(255, 164, 225, 0.12);
   top: 45%;
   left: 35%;
   animation-delay: -16s;
@@ -150,7 +150,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(139, 92, 246, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 131, 214, 0.08) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
@@ -306,7 +306,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #9333EA 0%, #7C3AED 100%);
+  background: linear-gradient(135deg, #C23996 0%, #DE52B0 100%);
   opacity: 0;
   transition: opacity var(--transition-normal);
 }
