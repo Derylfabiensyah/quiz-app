@@ -1,122 +1,104 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from "react";
+import questions from "./data/questions";
+import StartScreen from "./components/StartScreen";
+import QuestionCard from "./components/QuestionCard";
+import ProgressBar from "./components/ProgressBar";
+import ResultScreen from "./components/ResultScreen";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [screen, setScreen] = useState("start"); // 'start' | 'quiz' | 'result'
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [score, setScore] = useState(0);
+  const [answers, setAnswers] = useState([]);
+
+  const handleStart = () => {
+    setScreen("quiz");
+  };
+
+  const handleSelectAnswer = (index) => {
+    setSelectedAnswer(index);
+  };
+
+  const handleNext = () => {
+    // Save the answer
+    const newAnswers = [...answers, selectedAnswer];
+    setAnswers(newAnswers);
+
+    // Check if answer is correct
+    if (selectedAnswer === questions[currentQuestion].correctAnswer) {
+      setScore((prev) => prev + 1);
+    }
+
+    // Move to next question or show result
+    if (currentQuestion + 1 < questions.length) {
+      setCurrentQuestion((prev) => prev + 1);
+      setSelectedAnswer(null);
+    } else {
+      setScreen("result");
+    }
+  };
+
+  const handleRestart = () => {
+    setScreen("start");
+    setCurrentQuestion(0);
+    setSelectedAnswer(null);
+    setScore(0);
+    setAnswers([]);
+  };
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      {/* Animated background orbs */}
+      <div className="bg-orbs">
+        <div className="orb" />
+        <div className="orb" />
+        <div className="orb" />
+      </div>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+      {screen === "start" && (
+        <div className="card" key="start">
+          <div className="card-body">
+            <StartScreen
+              totalQuestions={questions.length}
+              onStart={handleStart}
+            />
+          </div>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      )}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      {screen === "quiz" && (
+        <div className="card" key={`quiz-${currentQuestion}`}>
+          <ProgressBar
+            current={currentQuestion + 1}
+            total={questions.length}
+          />
+          <div className="card-body">
+            <QuestionCard
+              question={questions[currentQuestion]}
+              questionNumber={currentQuestion + 1}
+              totalQuestions={questions.length}
+              selectedAnswer={selectedAnswer}
+              onSelectAnswer={handleSelectAnswer}
+              onNext={handleNext}
+            />
+          </div>
+        </div>
+      )}
+
+      {screen === "result" && (
+        <div className="card" key="result">
+          <div className="card-body">
+            <ResultScreen
+              score={score}
+              totalQuestions={questions.length}
+              onRestart={handleRestart}
+            />
+          </div>
+        </div>
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
