@@ -38,8 +38,8 @@ function ResultScreen({ score, totalQuestions, onRestart }) {
           <svg viewBox="0 0 160 160">
             <defs>
               <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#6C63FF" />
-                <stop offset="100%" stopColor="#3B82F6" />
+                <stop offset="0%" stopColor="#8B5CF6" />
+                <stop offset="100%" stopColor="#818CF8" />
               </linearGradient>
             </defs>
             <circle className="circle-bg" cx="80" cy="80" r={radius} />
